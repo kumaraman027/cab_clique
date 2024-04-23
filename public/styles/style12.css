@@ -1,0 +1,13 @@
+ 
+    :root {
+      /* fonts */
+      --font-carter-one: "Carter One";
+      --font-poppins: Poppins;
+    
+      /* font sizes */
+      --font-size-base: 16px;
+    
+      /* Colors */
+      --color-dodgerblue: #1572d3;
+      --color-gray-100:#242424;
+}

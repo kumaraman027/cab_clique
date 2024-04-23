@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style33.css">
+    <style>
+     
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="styles/pngwing.com.png" alt="Logo" class="logo">
+        </div>
+        <div class="navbar-right">
+            <button id="homebutton" class="btn-profile">Home</button>
+            <button id ="creategroup" class="btn-create">Create</button></div> </nav>
+            <script>
+                document.getElementById("creategroup").addEventListener("click", function() {
+                window.location.href = "/group"} )
+                document.getElementById("homebutton").addEventListener("click", function() {
+                window.location.href = "/"} )
+              
+        </script>
+        
+   
+    <div class="filter">
+        <label for="origin">From:</label>
+        <input type="text" id="origin" placeholder="Enter origin...">
+        <label for="destination">To:</label>
+        <input type="text" id="destination" placeholder="Enter destination...">
+        
+        <button onclick="filterBoxes()">Filter</button>
+    </div>
+    <div class="container">
+       
+        <div class="tab1">
+            <div class="part1">
+                <img class="imgcar" src="styles/car.png" class="img7">
+            </div>
+            <div class="part2">
+                <p>Vacancy: 1<br>Time: 11 am <br>From:katpadi<br>To: Vit <br></p>
+            </div>
+            <button class="btn-join" onclick="openModal()">Join</button>
+        </div>
+        <div class="tab1">
+            <div class="part1">
+                <img class="imgcar" src="styles/car.png" class="img7">
+            </div>
+            <div class="part2">
+                <p>Vacancy: 2<br>Time: 8 am <br>From: Chennai<br>To: Vit <br>Date: 24-04-2024<br></p>
+            </div>
+            <button class="btn-join" onclick="openModal()">Join</button>
+        </div>
+        <div class="tab1">
+            <div class="part1">
+                <img class="imgauto" src="styles/Screenshot_2024-03-18_182109-removebg-preview (8).png" class="img7">
+            </div>
+            <div class="part2">
+                <p>Vacancy: 3<br>Time: 9 am <br>From: katpadi<br>To: Vit <br>Date: 25-04-2024<br></p>
+            </div>
+            <button class="btn-join" onclick="openModal()">Join</button>
+        </div>
+        <div class="tab1">
+            <div class="part1">
+                <img class="imgcar" src="styles/car.png" class="img7">
+            </div>
+            <div class="part2">
+                <p>Vacancy: 1<br>Time: 11 am <br>From: katpadi<br>To: Vit <br> Date: 27-04-2024<br></p>
+            </div>
+            <button class="btn-join" onclick="openModal()">Join</button>
+        </div>
+        <div class="tab1">
+            <div class="part1">
+                <img class="imgcar" src="styles/car.png" class="img7">
+            </div>
+            <div class="part2">
+                <p>Vacancy: 1<br>Time: 9 pm <br>From: vit<br>To: katpadi <br> Date: 24-04-2024<br></p>
+            </div>
+            <button class="btn-join" onclick="openModal()">Join</button>
+        </div>
+        <div class="tab1">
+            <div class="part1">
+                <img class="imgauto" src="styles/Screenshot_2024-03-18_182109-removebg-preview (8).png" class="img7">
+            </div>
+            <div class="part2">
+                <p>Vacancy: 1<br>Time: 11 am <br>From:vit<br>To: chennai <br>Date: 24-04-2024<br></p>
+            </div>
+            <button class="btn-join" onclick="openModal()">Join</button>
+        </div>
+        <div class="tab1">
+            <div class="part1">
+                <img class="imgcar" src="styles/car.png" class="img7">
+            </div>
+            <div class="part2">
+                <p>Vacancy: 1<br>Time: 11 am <br>From: Patna<br>To: Vit <br>Date: 24-04-2024<br></p>
+            </div>
+            <button class="btn-join" onclick="openModal()">Join</button>
+        </div>
+       
+        
+       
+
+        
+
+    </div>
+   
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>User Information</h2>
+            
+            <p>User Profile Photo</p>
+            <p>Contact Details: user@example.com</p>
+            <textarea placeholder="Enter your message"></textarea>
+            <button onclick="confirmJoin()">Confirm Join</button>
+        </div>
+    </div>
+
+    <script>
+       
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        
+        function confirmJoin() {
+           
+            alert('Join confirmed!');
+        }
+
+       
+        function filterBoxes() {
+    var origin = document.getElementById('origin').value.toLowerCase();
+    var destination = document.getElementById('destination').value.toLowerCase();
+    var tabs = document.querySelectorAll('.tab1');
+
+    tabs.forEach(tab => {
+        var from = tab.querySelector('.part2').innerText.toLowerCase();
+        var to = from.split('to:')[1].trim(); 
+        
+        if (from.includes(origin) && !to.includes(origin) && from.includes(destination)) {
+            tab.style.display = 'block';
+        } else {
+            tab.style.display = 'none';
+        }
+    });
+}
+
+
+        document.getElementById("creategroup").addEventListener("click", function() {
+                window.location.href = "/group"} )
+                document.getElementById("homebutton").addEventListener("click", function() {
+                window.location.href = "/"} )
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                filterBoxes();
+            }
+        }); 
+    </script>
+</body>
+</html>

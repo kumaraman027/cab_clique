@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="/styles/style21.css" />
+    <link rel="stylesheet" href="/styles/style22.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap"
+    />
+    <style>
+     
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+     
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+      }
+
+     
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vector-parent">
+      <img class="frame-child" alt="" src="./public/pngwing.com.png" />
+
+      <header class="taxi-logo-removebg-preview-2-parent">
+        <img
+          class="taxi-logo-removebg-preview-2-icon"
+          loading="lazy"
+          alt=""
+          src="styles/pngwing.com.png"
+        />
+
+        <div class="frame-wrapper">
+          <a class="frame-parent">
+            <div class="frame-wrapper11">
+              <ul>
+                <li ><a id="homebutton" class="a1" href="/">Home</a></li>
+                <li><a class="a1">Teams</a></li>
+              </ul>
+              <button class="button-9" id="profileButton">Profile</button>
+              <button id="joinButton" class="button-8">Join</button>
+              <script>
+                document.getElementById("joinButton").addEventListener("click", function() {
+                window.location.href = "/joingroup"} )
+                document.getElementById("homebutton").addEventListener("click", function() {
+                window.location.href = "/"} )
+               
+            
+        </script>
+            </div>
+          </a>
+        </div>
+      </header>
+      <section class="frame-section">
+        <div class="frame-group">
+          <div class="create-group-wrapper">
+            <h1 class="create-group">Create Group</h1>
+          </div>
+          <div class="rectangle-parent">
+            <div class="frame-item"></div>
+
+            <img
+              class="image-6-icon"
+              loading="lazy"
+              alt=""
+              src="styles/—Pngtree—hand painted cartoon lovely college_3942677.png"
+            />
+
+            <div class="create">
+            
+              <input class="create-child" placeholder="Vacancy:" type="number">
+              <input class="create-child" placeholder="Time:" type="text">
+              <input class="create-child" placeholder="Date:" type="date">
+              <input class="create-child" placeholder="From:" type="text">
+              <input class="create-child" placeholder="Destination:" type="text">
+
+              <div class="frame-parent1">
+                <div class="frame-wrapper3">
+                  <div class="rectangle-container"></div>
+                </div>
+
+                <button id="createButton" class="create1">Create</button>
+                <script>
+                  document.getElementById("createButton").addEventListener("click", function() {
+                      alert("Your group has been created successfully");
+                  });
+              </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    
+    <div id="profileModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Profile</h2>
+        
+        <input id="nameInput" type="text" placeholder="Name">
+        <input id="phoneInput" type="text" placeholder="Phone Number">
+        <input type="file" accept="image/*">
+        <button id="saveProfileBtn">Save</button>
+      </div>
+    </div>
+    <script>
+      var modal = document.getElementById("profileModal");
+      var profileBtn = document.getElementById("profileButton");
+      var closeBtn = document.querySelector(".close");
+      var saveProfileBtn = document.getElementById("saveProfileBtn");
+
+      profileBtn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      saveProfileBtn.onclick = function () {
+        
+        var name = document.getElementById("nameInput").value.trim();
+        var phone = document.getElementById("phoneInput").value.trim();
+
+       
+        var nameRegex = /^[a-zA-Z\s]+$/;
+        var phoneRegex = /^\d{10}$/;
+
+
+        if (!nameRegex.test(name)) {
+          alert("Please enter a valid name.");
+          return;
+        }
+
+        if (!phoneRegex.test(phone)) {
+          alert("Please enter a valid 10-digit phone number.");
+          return;
+        }
+
+        alert("Profile successfully submitted!");
+        modal.style.display = "none";
+      };
+    </script>
+   
+    <script>
+     
+      var modal = document.getElementById("profileModal");
+
+    
+      var profileBtn = document.getElementById("profileButton");
+      
+      
+      var closeBtn = document.getElementsByClassName("close")[0];
+
+      
+      var savebutton = document.getElementById("savebutton");
+
+     
+      profileBtn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+     
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+      document.getElementById("createbutton").addEventListener("click", function() {
+                alert("Created")} )
+      
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+var saveProfileBtn = document.getElementById("saveProfileBtn");
+
+
+saveProfileBtn.onclick = function () {
+  alert("Profile successfully submitted!");
+  modal.style.display = "none";
+};
+
+    </script>
+  </body>
+</html>
