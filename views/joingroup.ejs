@@ -2,45 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+   
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Group Page</title>
     <link rel="stylesheet" href="styles/style33.css">
     <style>
-     
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow: auto;
-        }
-        
-        .modal-content {
-            background-color: #fefefe;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-        }
-        
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+        /* Your existing styles */
+        .modal { display: none; /* Hidden by default */ position: fixed; /* Stay in place */ z-index: 1; /* Sit on top */ left: 0; top: 0; width: 100%; /* Full width */ height: 100%; /* Full height */ overflow: auto; /* Enable scroll if needed */ background-color: rgb(0,0,0); /* Fallback color */ background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ }
+        .modal-content { background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+        .close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -48,151 +20,170 @@
         <div class="navbar-left">
             <img src="styles/pngwing.com.png" alt="Logo" class="logo">
         </div>
+        
         <div class="navbar-right">
             <button id="homebutton" class="btn-profile">Home</button>
-            <button id ="creategroup" class="btn-create">Create</button></div> </nav>
-            <script>
-                document.getElementById("creategroup").addEventListener("click", function() {
-                window.location.href = "/group"} )
-                document.getElementById("homebutton").addEventListener("click", function() {
-                window.location.href = "/"} )
-              
-        </script>
-        
-   
+            <button><div class="greeting">Hey, <%= username %>!</div>
+                <div class="profile-container">
+                  <img src="<%= profilepic %>" alt="Profile Picture" class="profile-pic" />
+                </div></button>
+            <button id="creategroup" class="btn-create">Create</button>
+        </div>
+    </nav>
+    <script>
+        document.getElementById("creategroup").addEventListener("click", function() {
+            window.location.href = "/group";
+        });
+        document.getElementById("homebutton").addEventListener("click", function() {
+            window.location.href = "/";
+        });
+    </script>
+
     <div class="filter">
         <label for="origin">From:</label>
         <input type="text" id="origin" placeholder="Enter origin...">
         <label for="destination">To:</label>
         <input type="text" id="destination" placeholder="Enter destination...">
-        
         <button onclick="filterBoxes()">Filter</button>
     </div>
+    
     <div class="container">
-       
-        <div class="tab1">
-            <div class="part1">
-                <img class="imgcar" src="styles/car.png" class="img7">
-            </div>
-            <div class="part2">
-                <p>Vacancy: 1<br>Time: 11 am <br>From:katpadi<br>To: Vit <br></p>
-            </div>
-            <button class="btn-join" onclick="openModal()">Join</button>
-        </div>
-        <div class="tab1">
-            <div class="part1">
-                <img class="imgcar" src="styles/car.png" class="img7">
-            </div>
-            <div class="part2">
-                <p>Vacancy: 2<br>Time: 8 am <br>From: Chennai<br>To: Vit <br>Date: 24-04-2024<br></p>
-            </div>
-            <button class="btn-join" onclick="openModal()">Join</button>
-        </div>
-        <div class="tab1">
-            <div class="part1">
-                <img class="imgauto" src="styles/Screenshot_2024-03-18_182109-removebg-preview (8).png" class="img7">
-            </div>
-            <div class="part2">
-                <p>Vacancy: 3<br>Time: 9 am <br>From: katpadi<br>To: Vit <br>Date: 25-04-2024<br></p>
-            </div>
-            <button class="btn-join" onclick="openModal()">Join</button>
-        </div>
-        <div class="tab1">
-            <div class="part1">
-                <img class="imgcar" src="styles/car.png" class="img7">
-            </div>
-            <div class="part2">
-                <p>Vacancy: 1<br>Time: 11 am <br>From: katpadi<br>To: Vit <br> Date: 27-04-2024<br></p>
-            </div>
-            <button class="btn-join" onclick="openModal()">Join</button>
-        </div>
-        <div class="tab1">
-            <div class="part1">
-                <img class="imgcar" src="styles/car.png" class="img7">
-            </div>
-            <div class="part2">
-                <p>Vacancy: 1<br>Time: 9 pm <br>From: vit<br>To: katpadi <br> Date: 24-04-2024<br></p>
-            </div>
-            <button class="btn-join" onclick="openModal()">Join</button>
-        </div>
-        <div class="tab1">
-            <div class="part1">
-                <img class="imgauto" src="styles/Screenshot_2024-03-18_182109-removebg-preview (8).png" class="img7">
-            </div>
-            <div class="part2">
-                <p>Vacancy: 1<br>Time: 11 am <br>From:vit<br>To: chennai <br>Date: 24-04-2024<br></p>
-            </div>
-            <button class="btn-join" onclick="openModal()">Join</button>
-        </div>
-        <div class="tab1">
-            <div class="part1">
-                <img class="imgcar" src="styles/car.png" class="img7">
-            </div>
-            <div class="part2">
-                <p>Vacancy: 1<br>Time: 11 am <br>From: Patna<br>To: Vit <br>Date: 24-04-2024<br></p>
-            </div>
-            <button class="btn-join" onclick="openModal()">Join</button>
-        </div>
-       
-        
-       
+        <% data.forEach(entry => { %>
+            <div class="tab1">
+                <div class="part1">
+                    <% if (entry.type == 'auto') { %>
+                        <img class="imgauto" src="styles/Screenshot_2024-03-18_182109-removebg-preview (8).png" class="img7">
+                    <% } else if(entry.type==='car') { %>
+                        <img class="imgcar" src="styles/car.png" class="img7">
+                    <% } %>
+                </div>
+                <div class="part2">
+                    <p>
+                        Vacancy: <%= entry.vacancy %><br>
+                        Time: <%= entry.time %><br>
+                        From: <%= entry.from_location %><br>
+                        To: <%= entry.to_location %><br>
+                        Date: <%= entry.date %><br>
 
-        
+                        
+                        
+                    </p>
+                </div>
+                <!-- <button class="btn-join" onclick="openMessage('<%=entry.user_id%>')">Join</button> -->
+                <button class="btn-join" onclick="openMessageModal('<%=entry.user_id%>')">Message</button>
+                
 
+               
+            </div>
+        <% }); %>
     </div>
-   
-    <div id="myModal" class="modal">
+
+    <!-- Join Modal -->
+    <div id="joinModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeJoinModal()">&times;</span>
             <h2>User Information</h2>
-            
             <p>User Profile Photo</p>
             <p>Contact Details: user@example.com</p>
-            <textarea placeholder="Enter your message"></textarea>
             <button onclick="confirmJoin()">Confirm Join</button>
         </div>
     </div>
 
+    <!-- Message Modal -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeMessageModal()">&times;</span>
+            <h2>Send Message</h2>
+            <textarea id="messageText" placeholder="Enter your message"></textarea>
+            <button id="sendMessageButton">Send Message</button>
+        </div>
+    </div>
+
     <script>
-       
-        function openModal() {
-            document.getElementById('myModal').style.display = 'block';
-        }
+       let currentUserId = null;
 
-        
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-
-        
-        function confirmJoin() {
-           
-            alert('Join confirmed!');
-        }
-
-       
-        function filterBoxes() {
-    var origin = document.getElementById('origin').value.toLowerCase();
-    var destination = document.getElementById('destination').value.toLowerCase();
-    var tabs = document.querySelectorAll('.tab1');
-
-    tabs.forEach(tab => {
-        var from = tab.querySelector('.part2').innerText.toLowerCase();
-        var to = from.split('to:')[1].trim(); 
-        
-        if (from.includes(origin) && !to.includes(origin) && from.includes(destination)) {
-            tab.style.display = 'block';
-        } else {
-            tab.style.display = 'none';
-        }
-    });
+function openModal(userId) {
+    currentUserId = userId;
+    console.log(currentUserId);
+    document.getElementById('joinModal').style.display = 'block';
 }
 
+function closeJoinModal() {
+    document.getElementById('joinModal').style.display = 'none';
+}
+
+function openMessageModal(userId) {
+    currentUserId = userId;
+    
+    // Debugging line
+    document.getElementById('messageModal').style.display = 'block';
+}
+function openMessage(id) {
+    
+    alert(id); // Debugging line
+    // document.getElementById('messageModal').style.display = 'block';
+}
+
+function closeMessageModal() {
+    document.getElementById('messageModal').style.display = 'none';
+}
+
+function confirmJoin() {
+    alert('Join confirmed!');
+    closeJoinModal();
+}
+
+document.getElementById('sendMessageButton').addEventListener('click', function() {
+    const message = document.getElementById('messageText').value;
+    if (message && currentUserId) {  // Ensure currentUserId is defined in your frontend
+         // Same here
+        fetch('/sendMessage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userId: currentUserId, message: message })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Message sent successfully!');
+                closeMessageModal();  // Ensure `closeMessageModal()` is defined
+            } else {
+                alert('Failed to send message.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    } else {
+        alert('Please enter a message.');  // This will alert if no message or currentUserId is available
+    }
+});
+
+
+        function filterBoxes() {
+            var origin = document.getElementById('origin').value.toLowerCase();
+            var destination = document.getElementById('destination').value.toLowerCase();
+            var tabs = document.querySelectorAll('.tab1');
+
+            tabs.forEach(tab => {
+                var from = tab.querySelector('.part2').innerText.toLowerCase();
+                var to = from.split('to:')[1].trim(); 
+                
+                if (from.includes(origin) && !to.includes(origin) && from.includes(destination)) {
+                    tab.style.display = 'block';
+                } else {
+                    tab.style.display = 'none';
+                }
+            });
+        }
 
         document.getElementById("creategroup").addEventListener("click", function() {
-                window.location.href = "/group"} )
-                document.getElementById("homebutton").addEventListener("click", function() {
-                window.location.href = "/"} )
+            window.location.href = "/group";
+        });
+        document.getElementById("homebutton").addEventListener("click", function() {
+            window.location.href = "/";
+        });
+
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 filterBoxes();
@@ -201,3 +192,25 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
